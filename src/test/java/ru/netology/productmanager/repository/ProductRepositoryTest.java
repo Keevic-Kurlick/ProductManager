@@ -8,15 +8,14 @@ import ru.netology.productmanager.domain.Smartphone;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProductRepositoryTest {
-    ProductRepository repo = new ProductRepository();
-    Product book1 = new Book(1, "Harry Potter", 150, "Rowling", 500, 2002);
-    Product book2 = new Book(2, "Potter And Hermione", 160, "Rowling", 560, 2004);
-    Product book3 = new Book(6, "Friends", 460, "Agustin", 340, 2020);
-    Product smartphone1 = new Smartphone(3, "Iphone 11", 70000, "Apple");
-    Product smartphone2 = new Smartphone(4, "Galaxy S21", 30000, "Samsung");
-    Product smartphone3 = new Smartphone(5, "Iphone 13", 78000, "Apple");
+    private ProductRepository repo = new ProductRepository();
 
-    public void save4Items() {
+    private Product book1 = new Book(1, "Harry Potter", 150, "Rowling", 500, 2002);
+    private Product book2 = new Book(2, "Potter And Hermione", 160, "Rowling", 560, 2004);
+    private Product smartphone1 = new Smartphone(3, "Iphone 11", 70000, "Apple");
+    private Product smartphone2 = new Smartphone(4, "Galaxy S21", 30000, "Samsung");
+
+    private void save4Items() {
         repo.addProduct(book1);
         repo.addProduct(book2);
         repo.addProduct(smartphone1);
