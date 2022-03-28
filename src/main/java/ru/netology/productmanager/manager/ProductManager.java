@@ -16,7 +16,6 @@ public class ProductManager {
         repo.save(product);
     }
 
-
     public Product[] searchBy(String text) {
         Product[] searchResult = new Product[0];
         ProductRepository searchRepo = new ProductRepository();
@@ -44,5 +43,4 @@ public class ProductManager {
         }
         return false;
     }
-
 }
