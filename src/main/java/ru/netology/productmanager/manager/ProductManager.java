@@ -5,6 +5,9 @@ import ru.netology.productmanager.domain.Book;
 import ru.netology.productmanager.domain.Smartphone;
 import ru.netology.productmanager.repository.ProductRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProductManager {
     private ProductRepository repo;
 
@@ -17,14 +20,13 @@ public class ProductManager {
     }
 
     public Product[] searchBy(String text) {
-        Product[] searchResult = new Product[0];
-        ProductRepository searchRepo = new ProductRepository();
+        List<Product> result = new ArrayList<>();
         for (Product item : repo.findAll()) {
             if (matches(item, text)) {
-                searchRepo.save(item);
+                result.add(item);
             }
         }
-        return searchRepo.findAll();
+        return result.toArray(new Product[0]);
     }
 
     public boolean matches(Product product, String search) {

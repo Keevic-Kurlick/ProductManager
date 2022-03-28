@@ -5,7 +5,6 @@ import ru.netology.productmanager.repository.exceptions.NotFoundException;
 
 public class ProductRepository {
     private Product[] items = new Product[0];
-    private Product[] searchResult = new Product[0];
 
     public void save(Product item) {
         int length = items.length + 1;
