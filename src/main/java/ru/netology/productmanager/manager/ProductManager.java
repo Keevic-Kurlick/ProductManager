@@ -6,25 +6,26 @@ import ru.netology.productmanager.domain.Smartphone;
 import ru.netology.productmanager.repository.ProductRepository;
 
 public class ProductManager {
-    private ProductRepository repo = new ProductRepository();
+    private ProductRepository repo;
 
     public ProductManager(ProductRepository repo) {
         this.repo = repo;
     }
 
-    private Product[] searchResult = new Product[0];
-
     public void add(Product product) {
-        repo.addProduct(product);
+        repo.save(product);
     }
 
+
     public Product[] searchBy(String text) {
+        Product[] searchResult = new Product[0];
+        ProductRepository searchRepo = new ProductRepository();
         for (Product item : repo.findAll()) {
             if (matches(item, text)) {
-                searchResult = repo.save(item, searchResult);
+                searchRepo.save(item);
             }
         }
-        return searchResult;
+        return searchRepo.findAll();
     }
 
     public boolean matches(Product product, String search) {
